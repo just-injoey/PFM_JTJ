@@ -2,20 +2,19 @@
 
 import React from "react";
 // import CardBox from "./CardBox";
-// import { Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import CircularProgressBar from "../../components/CircularProgressBar";
 import LineProgressBar from "../../components/LineProgressBar";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
-import { Row, Col, Card, Typography, Button, Statistic, Space } from 'antd';
+// import { Row, Col, Card, Typography, Button, Statistic, Space } from 'antd';
 import {
   DollarCircleOutlined,
   BankOutlined,
   FileTextOutlined,
   AlertOutlined,
 } from '@ant-design/icons'
-import { PageLayout } from './layouts/NavigationLayout/Page.layout.tsx'
 import { useNavigate } from "react-router-dom";
 
 // import MovingIcon from '@mui/icons-material/Moving';
@@ -90,28 +89,44 @@ const Analytics = ({ transactions }) => {
 
   return (
     <>
-      <PageLayout layout="full-width">
-      {/* <Title level={2}>Dashboard</Title> */}
-      {/* <Text>Welcome back, {user?.name || 'User'}!</Text> */}
+      <Container className="mt-5 ">
+        <Row>
+          <div className="col-lg-4 col-md-6 mb-4">
+            <div className="card h-100">
+              <div className="card-header bg-white text-black">
+                <span style={{ fontWeight: "bold" }}>
+                <BankOutlined/> HDFC
+                </span>{" "}
+               
+              </div>
+              <div className="card-body">
+              <h5 className="card-title" style={{color: "grey"}}>
+                  Account No.: 00001430087895
+                </h5>
+                <h5 className="card-title" style={{color: "grey"}}>
+                  Type: Savings
+                </h5>
 
-      <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
-        <Col xs={24} sm={12} md={8} lg={6}>
-          <Card onClick={() => navigate('/bankacc')}>
-            <Statistic
-              title="Total Balance"
-              value = "0"
-              // value={user?.bankAccounts?.reduce(
-              //   (acc, account) => acc + account.balance,
-              //   0,
-              // )}
-              // prefix={<DollarCircleOutlined />}
-              prefix={<RupeeCircleOutlined />}
-            />
-          </Card>
-        </Col>
-      </Row>
-      </PageLayout>
+                <div className="d-flex justify-content-left mt-3 ">
+                <RupeeCircleOutlined/>
+                  <h5 className="card-title" style={{color: "green"}}>
+                     50000                  
+                  </h5>
+                  
+                </div>
 
+                {/* <div className="d-flex justify-content-center mt-4 mb-2">
+                  <CircularProgressBar
+                    percentage={totalExpensePercent.toFixed(0)}
+                    color="red"
+                  />
+                </div> */}
+              </div>
+            </div>
+          </div>
+
+        </Row>
+      </Container>
         
       {/* <Container className="mt-5 ">
         <Row>

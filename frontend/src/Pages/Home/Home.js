@@ -40,6 +40,15 @@ const Home = () => {
   const [endDate, setEndDate] = useState(null);
   const [view, setView] = useState("table");
 
+
+
+  ////////////////////////////////////////////////////////
+  const [showChatbot, setShowChatbot] = useState(false);
+
+  const handleChatbotClick = () => {
+    setShowChatbot(true);
+  };
+  /////////////////////////////////////////////////////////
   const handleStartChange = (date) => {
     setStartDate(date);
   };
@@ -178,28 +187,7 @@ const Home = () => {
   const handleChartClick = (e) => {
     setView("chart");
   };
-  const ChatbotComponent = () => {
-    useEffect(() => {
-      const script = document.createElement('script');
-      script.src = 'https://www.chatbase.co/embed.min.js';
-      script.defer = true;
-      script.setAttribute('chatbotId', 'yJ7qEbvn1kasvqSixCkJK');
-      script.setAttribute('domain', 'www.chatbase.co');
-      
-      document.body.appendChild(script);
   
-      return () => {
-        document.body.removeChild(script);
-      };
-    }, []);
-  
-    return (
-      <div>
-        {/* Your React component content here */}
-      </div>
-    );
-  };
-
   return (
     <>
       <Header />
@@ -423,9 +411,6 @@ const Home = () => {
             )}
             <ToastContainer />
           </Container>
-          <>
-          <ChatbotComponent/>
-          </>
         </>
       )}
     </>
