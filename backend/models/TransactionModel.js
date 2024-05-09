@@ -36,6 +36,7 @@ const transactionSchema = new mongoose.Schema({
         type: Date,
         required: [true, "Date is required"],
     },
+    
 
     user:{
         type: mongoose.Schema.Types.ObjectId,

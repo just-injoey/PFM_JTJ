@@ -131,12 +131,7 @@ const BankAcc = () => {
     setLoading(false);
   };
 
-  const handleReset = () => {
-    setType("all");
-    setStartDate(null);
-    setEndDate(null);
-    setFrequency("7");
-  };
+ 
 
 
   
@@ -192,54 +187,8 @@ const BankAcc = () => {
             className="mt-3"
           >
             <div className="filterRow">
-              <div className="text-white">
-                <Form.Group className="mb-3" controlId="formSelectFrequency">
-                  <Form.Label>Select Frequency</Form.Label>
-                  <Form.Select
-                    name="frequency"
-                    value={frequency}
-                    onChange={handleChangeFrequency}
-                  >
-                    <option value="7">Last Week</option>
-                    <option value="30">Last Month</option>
-                    <option value="365">Last Year</option>
-                    <option value="custom">Custom</option>
-                  </Form.Select>
-                </Form.Group>
-              </div>
-
-              <div className="text-white type">
-                <Form.Group className="mb-3" controlId="formSelectFrequency">
-                  <Form.Label>Type</Form.Label>
-                  <Form.Select
-                    name="type"
-                    value={type}
-                    onChange={handleSetType}
-                  >
-                    <option value="all">All</option>
-                    <option value="expense">Expense</option>
-                    <option value="credit">Earned</option>
-                  </Form.Select>
-                </Form.Group>
-              </div>
-
-              <div className="text-white iconBtnBox">
-                <FormatListBulletedIcon
-                  sx={{ cursor: "pointer" }}
-                  onClick={handleTableClick}
-                  className={`${
-                    view === "table" ? "iconActive" : "iconDeactive"
-                  }`}
-                />
-                <BarChartIcon
-                  sx={{ cursor: "pointer" }}
-                  onClick={handleChartClick}
-                  className={`${
-                    view === "chart" ? "iconActive" : "iconDeactive"
-                  }`}
-                />
-              </div>
-
+              
+              
               <div>
                 <Button onClick={handleShow} className="addNew">
                   Add New
@@ -384,11 +333,7 @@ const BankAcc = () => {
               <></>
             )}
 
-            <div className="containerBtn">
-              <Button variant="primary" onClick={handleReset}>
-                Reset Filter
-              </Button>
-            </div>
+            
             {view === "table" ? (
               <>
                 {/* <TableData data={transactions} user={cUser} /> */}

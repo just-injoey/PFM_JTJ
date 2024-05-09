@@ -36,6 +36,9 @@ const Register = () => {
     name : "",
     email : "",
     password : "",
+    gender: "male",
+    mobileNumber: "",
+    dob: "",
 
   });
 
@@ -58,14 +61,17 @@ const Register = () => {
     
     e.preventDefault();
 
-      const {name, email, password} = values;
+      const {name, email, password, gender, mobileNumber, dob} = values;
       console.log(values);
       setLoading(false);
      
       const {data} = await axios.post(registerAPI, {
         name,
         email,
-        password
+        password,
+        gender,
+        mobileNumber,
+        dob
       });
       console.log(data);
 
@@ -175,9 +181,35 @@ const Register = () => {
               <Form.Label className="text-white">Password</Form.Label>
               <Form.Control type="password"  name="password" placeholder="Password" value={values.password} onChange={handleChange} />
             </Form.Group>
-            <div style={{width: "100%", display: "flex" , alignItems:"center", justifyContent:"center", flexDirection: "column"}} className="mt-4">
-              <Link to="/forgotPassword" className="text-white lnk" >Forgot Password?</Link>
 
+
+            <Form.Group className="mb-3" controlId="formSelectFrequency">
+              <Form.Label>Gender</Form.Label>
+              <Form.Select
+                name="gender"
+                value={values.gender}
+                onChange={handleChange}
+                // onChange={handleGenderType}
+              >
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="other">other</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicMobileNumber" className="mt-3">
+              <Form.Label className="text-white">Mobile Number</Form.Label>
+              <Form.Control type="text" name="mobileNumber" placeholder="Mobile Number" value={values.mobileNumber} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group controlId="formBasicDOB" className="mt-3">
+              <Form.Label className="text-white">Date of Birth</Form.Label>
+              <Form.Control type="date" name="dob" value={values.dob} onChange={handleChange} />
+            </Form.Group>
+
+
+            <div style={{width: "100%", display: "flex" , alignItems:"center", justifyContent:"center", flexDirection: "column"}} className="mt-4">
+              
+            
               <Button
                   type="submit"
                   className=" text-center mt-3 btnStyle"

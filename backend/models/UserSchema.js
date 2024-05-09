@@ -33,6 +33,20 @@ const userSchema = new mongoose.Schema({
         type: [],
     },
 
+    gender: {
+        type: String,
+        enum: ['male', 'female', 'other'],
+        required: true
+    },
+    mobileNumber: {
+        type: String,
+        required: true
+    },
+    dob: {
+        type: Date,
+        required: true
+    },
+    
     createdAt: {
         type:Date,
         default: Date.now,

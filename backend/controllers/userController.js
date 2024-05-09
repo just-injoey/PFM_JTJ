@@ -3,11 +3,11 @@ import bcrypt from "bcrypt";
 
 export const registerControllers = async (req, res, next) => {
     try{
-        const {name, email, password} = req.body;
+        const { name, email, password, gender, mobileNumber, dob } = req.body;
 
-        console.log(name, email, password);
+        console.log(name, email, password, gender, mobileNumber, dob);
 
-        if(!name || !email || !password){
+        if(!name || !email || !password || !gender || !mobileNumber || !dob){
             return res.status(400).json({
                 success: false,
                 message: "Please enter All Fields",
@@ -33,6 +33,9 @@ export const registerControllers = async (req, res, next) => {
             name, 
             email, 
             password: hashedPassword, 
+            gender,
+            mobileNumber,
+            dob,
         });
 
         return res.status(200).json({
@@ -127,6 +130,9 @@ export const allUsers = async (req, res, next) => {
             "email",
             "username",
             "avatarImage",
+            "gender",
+            "mobileNumber",
+            "dob",
             "_id",
         ]);
 
